@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Inicio
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    link(rel="stylesheet" type="text/css" href="/styles/menus.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/led.js")
+    script.
+      $(document).ready(main);
+        var contador = 1;
+        function main(){
+      $('.menu_bar').click(function(){
+       if(contador == 1){
+        $('nav').animate({
+          left: '0'
+        });
+        contador = 0;
+      } else {
+        contador = 1;
+        $('nav').animate({
+          left: '-100%'
+        });
+      }
+      });
+      };
+    
+    body
+      header
+        div.menu_bar
+          a (href="#" class="bt-menu")
+          span (class="icon-list2") Menu
+        nav
+          ul
+             li
+                a Inicio
+             li
+                a Hola

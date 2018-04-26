@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Inicio
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    link(rel="stylesheet" type="text/css" href="/styles/menu.css")
+    link(rel="stylesheet" type="text/css" href="/styles/led.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.min.js")
+    script.
+      //- io.socket.on('message',function(data){
+      //-   console.log(data.proceso)
+      //- });
+      $(function(){
+        var socket = io.connect('http://localhost:1337');
+      })
+  body
+    div.header
+    - var long = datos.length
+      ul.nav
+        li
+          a.link(href= '/inicio') Inicio
+        li
+          a.link(href= '/CreateAlarm') Crear Alarma
+        li
+          a.link(href= '/readAlarm') Ver Alarmas       
+        li
+          a.link(href= '/readHistory') Historial
+        li
+          a.link(href= '/logout') Cerrar sesión
+    br
+    div.tabla
+      br
+      br
+      table(style="width:auto;text-align:center;")
+        tr
+          th.h
+          th Hora 
+          th.Lu Luces
+          th Corriente Eléctrica
+        -for(var i =0;i<long;i++)
+          tr
+            td.h #{i+1}
+            td #{datos[i].hora} : #{datos[i].minutos} : #{datos[i].segundos} 
+            td.Lu #{datos[i].P1}
+            td #{datos[i].P2}
+          

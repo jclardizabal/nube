@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Inicio
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    link(rel="stylesheet" type="text/css" href="/styles/menu.css")
+    link(rel="stylesheet" type="text/css" href="/styles/led.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.min.js")
+    script.
+      //- io.socket.on('message',function(data){
+      //-   console.log(data.proceso)
+      //- });
+      $(function(){
+        var socket = io.connect('http://localhost:1337');
+      })
+  body
+    div.header
+      ul.nav
+        li
+          a.link(href= '/inicio') Inicio
+        li
+          a.link(href= '/CreateAlarm') Crear Alarma
+        li
+          a.link(href= '/readAlarm') Ver Alarmas       
+        li
+          a.link(href= '/readHistory') Historial
+        li
+          a.link(href= '/logout') Cerrar sesión
+    br
+    br
+    div.contenedor
+      form(id="login_formulario" action="/Alarma" method="POST")
+        br
+        br
+        span Crear Alarma Programada 
+        br
+        br
+        input(name="hora" placeholder="Hora" type="text")
+        br
+        br
+        input(name="minutos" placeholder="Minutos" type="text")
+        br
+        br
+        input(name="segundos" placeholder="Segundos" type="text")
+        br 
+        br
+        input.check(name="luces" value="Luces" type="checkbox") 
+        span.al Luces
+        br
+        br
+        input.check(name="corriente" value="Corriente Eléctrica" type="checkbox") 
+        span.al Corriente Eléctrica
+        br
+        br
+        //input(name="alarma" value="Alarma" type="checkbox") 
+        //span Alarma
+        //br
+        br
+        input.boton(name="boton" value="Crear" type="submit")

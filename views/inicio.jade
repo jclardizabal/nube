@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Inicio
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    link(rel="stylesheet" type="text/css" href="/styles/menu.css")
+    link(rel="stylesheet" type="text/css" href="/styles/led.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/led.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.min.js")
+    script.
+      $(document).ready(function(){ 
+        $.ajaxSetup({cache:false});
+        Verificar();
+        function Verificar(){
+        if($(".uno").text()==1){
+          $(".led-red").css("background-color", "rgb(255,0,0)");
+          $.ajax({url:'/OnFoco1',type:'POST',success:function(){
+          }}); 
+        }
+        if($(".uno").text()==0){
+          $(".led-red").css("background-color", "rgb(170,0,0)");
+          $.ajax({url:'/OffFoco1',type:'POST',success:function(){
+          }});
+        }
+        if($(".dos").text()==1){
+          $(".led-red2").css("background-color", "rgb(255,0,0)");
+          $.ajax({url:'/OnCorriente1',type:'POST',success:function(){
+          }});
+        }
+        if($(".dos").text()==0){
+          $(".led-red2").css("background-color", "rgb(170,0,0)");
+          $.ajax({url:'/OffCorriente1',type:'POST',success:function(){
+          }});
+        }
+        if($(".tres").text()==1){
+          $(".led-red3").css("background-color", "rgb(255,0,0)");
+          $.ajax({url:'/OnAlarma1',type:'POST',success:function(){
+          }});
+        }
+        if($(".tres").text()==0){
+          $(".led-red3").css("background-color", "rgb(170,0,0)"); 
+          $.ajax({url:'/OffAlarma1',type:'POST',success:function(){
+          }});
+        }
+        if($(".diez").text()==1){
+          $(".led-red4").css("background-color", "rgb(255,0,0)");
+          $.ajax({url:'/OnAgua1',type:'POST',success:function(){
+          }});
+        }
+        if($(".diez").text()==0){
+          $(".led-red4").css("background-color", "rgb(170,0,0)"); 
+          $.ajax({url:'/OffAgua1',type:'POST',success:function(){
+          }});
+        }
+      }
+      
+        var dia, h, m, s;
+        setInterval(function(){
+          dia=new Date();
+          h=dia.getHours();
+          m=dia.getMinutes();
+          s=dia.getSeconds();
+          if(h==$(".siete").text()){
+            if(m==$(".ocho").text()){
+              if(s==$(".nueve").text()){
+                 if($(".cuatro").text()==1){
+                   $(".uno").text(1);
+                 }
+                 if($(".cuatro").text()==0){
+                   $(".uno").text(0);
+                 }
+                 if($(".cinco").text()==1){
+                   $(".dos").text(1);
+                 }
+                 if($(".cinco").text()==0){
+                   $(".dos").text(0);
+                 }
+                /* if($(".seis").text()==1){
+                   $(".tres").text(1);
+                 }
+                 if($(".seis").text()==0){
+                   $(".tres").text(0); 
+                 }
+                 if($(".once").text()==1){
+                   $(".diez").text(1);
+                 }
+                 if($(".once").text()==0){
+                   $(".diez").text(0); 
+                 }*/
+                 Verificar(); 
+                 $.xhrPool.abortAll();
+                 
+              }
+            }
+          }
+        },1000);
+          $(".led-red").click(function(){
+            var col="";
+            col= $(".led-red").css("background-color");
+             if (col=="rgb(255, 0, 0)"){
+                 $(".led-red").css("background-color", "rgb(170,0,0)");
+                $.ajax({url:'/OffFoco',type:'POST',success:function(){
+                }});
+                
+                location.reload();
+              }
+              else {
+                $(".led-red").css("background-color", "rgb(255,0,0)");
+                $.ajax({url:'/OnFoco',type:'POST',success:function(){
+                }});
+                location.reload();
+              }
+          });
+          $(".led-red2").click(function(){
+            var col="";
+            col= $(".led-red2").css("background-color");
+             if (col=="rgb(255, 0, 0)"){
+               $(".led-red2").css("background-color", "rgb(170,0,0)");
+              $.ajax({url:'/OffCorriente',type:'POST',success:function(){
+              }});
+              location.reload();
+              }
+              else {
+                $(".led-red2").css("background-color", "rgb(255,0,0)");
+                $.ajax({url:'/OnCorriente',type:'POST',success:function(){
+                }});
+                location.reload();
+              }
+          });
+          $(".led-red3").click(function(){
+            var col="";
+            col= $(".led-red3").css("background-color");
+             if (col=="rgb(255, 0, 0)"){
+               $(".led-red3").css("background-color", "rgb(170,0,0)");
+              $.ajax({url:'/OffAlarma',type:'POST',success:function(){
+              }});
+              location.reload();
+              }
+              else {
+                $(".led-red3").css("background-color", "rgb(255,0,0)");
+                $.ajax({url:'/OnAlarma',type:'POST',success:function(){
+                }});
+                location.reload();
+              }
+          });
+          $(".led-red4").click(function(){
+            var col="";
+            col= $(".led-red4").css("background-color");
+             if (col=="rgb(255, 0, 0)"){
+               $(".led-red4").css("background-color", "rgb(170,0,0)");
+              $.ajax({url:'/OffAgua',type:'POST',success:function(){
+              }});
+              location.reload();
+              }
+              else {
+                $(".led-red4").css("background-color", "rgb(255,0,0)");
+                $.ajax({url:'/OnAgua',type:'POST',success:function(){
+                }});
+                location.reload();
+              }
+          });
+      });
+  body
+    div.header
+      ul.nav
+        li
+          a.link(href= '/inicio') Inicio
+        li
+          a.link(href= '/CreateAlarm') Crear Alarma
+        li
+          a.link(href= '/readAlarm') Ver Alarmas       
+        li
+          a.link(href= '/readHistory') Historial
+        li
+          a.link(href= '/logout') Cerrar sesión
+        
+    br
+    br
+    div.container
+      br
+      br
+      div.led-box
+        a Luces
+        br
+        br
+        div.led-red
+      br
+      div.led-box
+        a Corriente Eléctrica
+        br
+        br
+        div.led-red2
+      br
+      br
+      div.led-box
+        a Alarma
+        br
+        br
+        div.led-red3
+      br
+      div.led-box
+        a Agua
+        br
+        br
+        div.led-red4
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      a.uno #{datos[0].E1}
+      a.dos #{datos[0].E2}
+      a.tres #{datos[0].E3}
+      a.diez #{datos[0].E4}
+      a.cuatro #{datos[0].P1}
+      a.cinco #{datos[0].P2}
+      //a.seis #{datos[0].P3}
+      //a.once #{datos[0].P4}
+      a.siete #{datos[0].hora}
+      a.ocho #{datos[0].minutos}
+      a.nueve #{datos[0].segundos}
+      

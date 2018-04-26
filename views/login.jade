@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Iniciar sesión
+    link(rel="stylesheet" type="text/css" href="/styles/login.css")
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.min.js")
+    script.
+      //- io.socket.on('message',function(data){
+      //-   console.log(data.proceso)
+      //- });
+      $(function(){
+        var socket = io.connect('http://localhost:1337');
+      })
+  body
+    div.contenedor
+      div.imagen
+        h2 SAI
+      form(id="login_formulario" action="/getLogin" method="POST")
+        div.c
+          div.imagencorreo
+            img(src="/images/usuario.svg")
+          div.correo
+           input(name="correo" placeholder="Correo" type="text")
+          div.imagencontra
+            img(src="/images/contra.svg")
+          div.contra
+           input(name="password" placeholder="Contraseña" type="contraseña")
+           br 
+          br
+          br
+        br
+        br
+        br
+        br
+        br
+        br
+        input.boton(id="submit" value="Entrar" type="submit")
+        br
+        a.l(href="/registro") Crear cuenta
+        br
+      div.error
+        if error
+          p #{error}

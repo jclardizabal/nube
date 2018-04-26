@@ -1,0 +1,168 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+	font-family: "Typo";
+  src: url(../fonts/font.otf) format("truetype");
+}
+
+.contenedor{
+  width: 30%;
+  height: 480px;
+  position: absolute;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin:5% 33%;
+  background-color: rgba(0, 0, 0, .3);
+}
+.contenido{
+  width: 50;height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.boton{
+  width: 150px;height: 50px;
+}
+.c .correo{
+  float:left;
+  margin: 0 auto;
+  width: 180px;
+  height: 27px;
+  border-bottom-style:solid;
+  border-bottom-color:  rgba(255, 255, 255, 255);
+  border-left-style:solid;
+  border-width: thin;
+  border-left-color:rgba(255, 255, 255, 255);
+}
+.c .contra{
+   float:left;
+  height: 27px;
+  width: 180px;
+  border-left-style:solid;
+  border-width: thin;
+  border-left-color:rgba(255, 255, 255, 255);
+}
+.c{
+  width: 300px;
+  text-align: center;
+}
+.c .imagencontra{
+  float:left;
+  width: 60px;
+}
+.c input{
+  background-color: transparent;
+  border-style: hidden;
+}
+.c .imagencorreo{
+   float:left;
+  margin: 0 auto;
+  width: 60px;
+  border-bottom-style:solid;
+  border-width: thin;
+  border-bottom-color:rgba(255, 255, 255, 255);
+}
+.c .imagencorreo img{
+  width: auto;
+  height: 23px;
+}
+.c .imagencontra img{
+  width: auto;
+  height: 23px;
+}
+
+.imagen{
+  background-image:url('/images/SalamodularMOOD.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+ width: 100%;
+  height: 270vh;
+  text-align: center;
+}
+
+.imagen h2{
+  line-height: 150px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+
+}
+
+::-webkit-input-placeholder { /* Safari y Chrome */
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox hasta v18 */
+   color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+}
+
+:-ms-input-placeholder {  /* IE 10+´*/
+   color: #fff;
+}
+
+
+@media screen and (max-width: 1024px){
+  .contenedor{
+    margin-left: 0px;
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .3);
+  }
+
+  .c{
+    width: 400px;
+    margin-top: -400px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .c .imagencontra img{
+    width:70%;
+    height:60px;
+  }
+  .c .imagencorreo img{
+    width:70%;
+    height:55px;
+  }
+
+  .c .contra{
+    width:180px;
+    height:60px;
+  }
+  input{
+    font-size: 50px;
+    width: 300px;
+  }
+  .c .correo{
+    width:280px;
+    height:60px;
+  }
+  .boton{
+    font-size: 20px;
+  }
+  .l{
+    font-size: 35px;
+  }
+  .imagen h2{
+    font-size: 70px;
+    font-family: 'Arial';
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+html
+  head
+    meta(charset='utf-8')
+    title Crear cuenta
+    link(rel="stylesheet" type="text/css" href="/styles/login.css")
+    link(rel="stylesheet" type="text/css" href="/styles/css.css")
+    script(type="text/javascript" src="/js/dependencies/sails.io.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.js")
+    script(type="text/javascript" src="/js/jquery-3.2.0.min.js")
+    script.
+      //- io.socket.on('message',function(data){
+      //-   console.log(data.proceso)
+      //- });
+      $(function(){
+        var socket = io.connect('http://localhost:1337');
+      })
+  body
+    div.contenedor
+      div.imagen
+        h2 SAI
+      form(id="login_formulario" action="/getRegister" method="GET")
+        div.c
+          div.name
+            input(name="nombre" placeholder="Nombre" type="text")
+            br
+            input(name="apellido" placeholder="Apellido" type="text")
+            br
+            input(name="correo" placeholder="Correo" type="text")
+            br
+            input(name="password" placeholder="Contraseña" type="password")
+            br
+            input(name="passwordr" placeholder="Repetir Contraseña" type="password")
+        br
+        div.checkbox_register
+          input(id="check" name="terminos" value="checked" type="checkbox")
+          span Acepto los
+            a(target="_blank" href="/pdf/tyc.pdf") Terminos y condiciones
+        br
+        input.boton(id="submit" value="Crear cuenta" type="submit")
+        br
+        a#register_login(href="/") Ya tengo una cuenta
+      div.error
+        if error
+          p #{error}
