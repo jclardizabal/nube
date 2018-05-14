@@ -1,12 +1,8 @@
 
 
-let mongoose = require('mongoose');
 
-mongoose.connect('mongodb://sai:sai123@ds259109.mlab.com:59109/sai-db',{ useMongoClient: true});
 
-module.exports = mongoose;
-
-/*module.exports.connections = {
+module.exports.connections = {
 
   
   localDiskDb: {
@@ -15,4 +11,4 @@ module.exports = mongoose;
 
   *************/
 
-/*};mongo db
+};mongo db
